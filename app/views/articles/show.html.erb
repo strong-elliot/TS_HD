@@ -12,6 +12,16 @@
 <h3><%= "Tag:" %></h3>
 <p><%= @article.catagory %></p>
 
+
+
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+
+
 <h3>Comments</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= link_to "edit", edit_article_path(@article) %>
